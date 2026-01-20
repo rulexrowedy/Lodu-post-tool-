@@ -1,4 +1,6 @@
 # ===================== IMPORTS =====================
+import os
+os.system("playwright install firefox")
 import streamlit as st
 import time, threading, random, uuid, os, json, gc, requests
 from collections import deque
