@@ -62,10 +62,13 @@ class Session:
     def __init__(self,sid):
         self.id=sid; self.running=False; self.count=0; self.idx=0
         self.logs=deque(maxlen=MAX_LOGS)
-    def log(self,m):
-        t=time.strftime('%H:%M:%S'); line=f"[{t}] {m}"; self.logs.append(line)
-        open(f"{LOGS_DIR}/{self.id}.log","a").write(line+"
-")
+    def log(self, m):
+    t = time.strftime('%H:%M:%S')
+    line = f"[{t}] {m}"
+    self.logs.append(line)
+    with open(f"{LOGS_DIR}/{self.id}.log", "a") as f:
+        f.write(line + "\n")
+        ")
 
 # ===================== DB =====================
 def load_db():
